@@ -5,8 +5,10 @@
         <div class="col-4"><b>Time : {{time}}</b></div>
     </div>
     <div class="progress mt-5" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-        <div class="progress-bar" style="width: {{PointsBar}}%"></div>
+        <!-- <div class="progress-bar" style="width: {{((cnt+1)*10 * AllQuestions.length-1)/100 *10}}%"></div> -->
+
       </div>
+      <input type="range" class="w-100" max="100" min="0" step="10" value="{{((cnt+1)*10)}}">
    <hr>
    <div class="card mt-5">
     <div class="card-header">
@@ -24,7 +26,15 @@
   </div>
   <div class="card card-header mt-3">
     <div>
-        <button class="btn btn-primary" (click)="Previous()">Previous</button> &nbsp; &nbsp;   <button class="btn btn-primary" (click)="Next()">Next</button>
+      <div class="row">
+        <div class="col-6">
+          <button class="btn btn-primary"  (click)="Previous()">Previous</button> &nbsp; &nbsp;   <button class="btn btn-primary" (click)="Next()">Next</button>
+        </div>
+        <div class="col-6  text-end">
+          <button class="btn btn-danger" [disabled]="cnt<AllQuestions.length-1" routerLink="/results" (click)="submit()">Submit</button>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

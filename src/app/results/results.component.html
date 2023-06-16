@@ -1,1 +1,22 @@
-<p>results works!</p>
+<div class="container mt-5">
+  <table class="table">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">Que.No.</th>
+        <th scope="col">Right/Wrong</th>
+        <th scope="col">Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let obj of AllQuestions ; let i=index">
+           <td scope="col">{{i+1}}</td>
+           <td scope="col" *ngIf="!obj.myAnswer" class="text-warning">Not Answered</td>
+           <td scope="col" *ngIf="obj.myAnswer && obj.options[obj.myAnswer]?.correct==true " class="text-success"> Correct</td>
+           <td scope="col" *ngIf=" !(obj.myAnswer && obj.options[obj.myAnswer]?.correct==true) " class="text-danger"> Wrong</td>
+           <td scope="col">{{obj.time}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+

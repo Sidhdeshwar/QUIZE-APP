@@ -9,4 +9,6 @@ export interface Pattern {
     options: option[];
     questionText:string;
     myAnswer : number;
+    TotalPoints : number ;
+    time :number ;
 }
